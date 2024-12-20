@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Exponent Custom Content Downloader",
+  "version": "1.0",
+  "description": "A Chrome extension to download content from tryexponent.com subdomains.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.tryexponent.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.tryexponent.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
+}
